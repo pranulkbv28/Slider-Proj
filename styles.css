@@ -1,0 +1,81 @@
+#imgContainer {
+  position: relative;
+  height: 80vh;
+}
+
+#imgContainer > div {
+  position: absolute;
+  top: 10%;
+}
+
+#imgContainer > div > img {
+  width: 700px;
+  height: 400px;
+  filter: opacity(0.45);
+  transition: all 0.5s ease-in-out;
+}
+
+#imgContainer > div > a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease-in-out;
+}
+
+#imgContainer > div > a > img {
+  width: 400px;
+  height: 400px;
+  transition: all 0.5s ease-in-out;
+}
+
+#firstImg,
+#secondImg,
+#thirdImg {
+  width: 700px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  position: absolute;
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  width: 700px;
+  height: 400px;
+}
+
+.img-overlay > img {
+  width: 700px;
+  height: 400px;
+  transition: all 0.5s ease-in-out;
+}
+
+#positionContainer {
+  position: absolute;
+  bottom: 25%;
+  left: 18%;
+  padding: 0 10px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.477);
+}
+
+#positionContainer > button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-bottom: 5px solid transparent;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  width: 100px;
+  padding: 5px 0;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.active {
+  border-bottom-color: white !important;
+}
