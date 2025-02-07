@@ -1,147 +1,160 @@
-let firstImg = document.getElementById("firstImg");
-firstImg.setAttribute("data-id", 1);
-firstImg.style.opacity = "1"; // Ensure first image is visible initially
-// firstImg.style.transform = "translateX(0)"; // Ensure first image is in place initially
-firstImg.style.transform = "scaleX(100%)";
-let firstImage1 = document.querySelector("#firstImg > img");
-let firstImage2 = document.querySelector("#firstImg > a > img");
-let firstImageBg = document.querySelector("#firstImg > .img-overlay > img");
-firstImageBg.style.transform = "scaleY(100%)";
+const firstImg = document.getElementById("firstImg");
+const firstBgImg = document.querySelector("#firstImg > div > img");
+firstBgImg.style.transform = "scaleY(100%)";
+firstBgImg.style.transformOrigin = "top";
+const firstTitleImage = document.querySelector("#firstImg > img");
+firstTitleImage.style.transform = "scaleX(100%)";
+firstTitleImage.style.transformOrigin = "left";
+const firstProdImg = document.querySelector("#firstImg > a > img");
+firstProdImg.style.transform = "scaleX(100%)";
+firstProdImg.style.transformOrigin = "left";
 
-let secondImg = document.getElementById("secondImg");
-secondImg.setAttribute("data-id", 2);
-secondImg.style.opacity = "0"; // Ensure second image is hidden initially
-// secondImg.style.transform = "translateX(-100%)"; // Position second image to the left initially
-secondImg.style.transform = "scaleX(0)";
-let secondImage1 = document.querySelector("#secondImg > img");
-secondImage1.style.transform = "scaleX(0)";
-let secondImage2 = document.querySelector("#secondImg > a > img");
-secondImage2.style.transform = "scaleX(0)";
-let secondImageBg = document.querySelector("#secondImg > .img-overlay > img");
-secondImageBg.style.transform = "scaleY(0)";
+const secondImg = document.getElementById("secondImg");
+const secondBgImg = document.querySelector("#secondImg > div > img");
+secondBgImg.style.transform = "scaleY(0%)";
+secondBgImg.style.transformOrigin = "bottom";
+const secondTitleImage = document.querySelector("#secondImg > img");
+secondTitleImage.style.transform = "scaleX(0%)";
+secondTitleImage.style.transformOrigin = "right";
+const secondProdImg = document.querySelector("#secondImg > a > img");
+secondProdImg.style.transform = "scaleX(0%)";
+secondProdImg.style.transformOrigin = "right";
 
-let thirdImg = document.getElementById("thirdImg");
-thirdImg.setAttribute("data-id", 3);
-thirdImg.style.opacity = "0"; // Ensure third image is hidden initially
-// thirdImg.style.transform = "translateX(-100%)"; // Position third image to the left initially
-thirdImg.style.transform = "scaleX(0)";
-let thirdImage1 = document.querySelector("#thirdImg > img");
-thirdImage1.style.transform = "scaleX(0)";
-let thirdImage2 = document.querySelector("#thirdImg > a > img");
-thirdImage2.style.transform = "scaleX(0)";
-let thirdImageBg = document.querySelector("#thirdImg > .img-overlay > img");
-thirdImageBg.style.transform = "scaleY(0)";
+const thirdImg = document.getElementById("thirdImg");
+const thirdBgImg = document.querySelector("#thirdImg > div > img");
+thirdBgImg.style.transform = "scaleY(0%)";
+thirdBgImg.style.transformOrigin = "bottom";
+const thirdTitleImage = document.querySelector("#thirdImg > img");
+thirdTitleImage.style.transform = "scaleX(0%)";
+thirdTitleImage.style.transformOrigin = "right";
+const thirdProdImg = document.querySelector("#thirdImg > a > img");
+thirdProdImg.style.transform = "scaleX(0%)";
+thirdProdImg.style.transformOrigin = "right";
 
-let first = document.getElementById("first");
-first.addEventListener("click", showFirstImg);
-first.classList.add("active");
-let second = document.getElementById("second");
-second.addEventListener("click", showSecondImg);
-let third = document.getElementById("third");
-third.addEventListener("click", showThirdImg);
+const firstButton = document.getElementById("first");
+firstButton.addEventListener("click", showFirst);
+const secondButton = document.getElementById("second");
+secondButton.addEventListener("click", showSecond);
+const thirdButton = document.getElementById("third");
+thirdButton.addEventListener("click", showThird);
 
 let shownImg = 1;
 
-function showFirstImg() {
-  const thisImg = 1;
-  addTranformOrigin(thisImg);
-  first.classList.add("active");
-  second.classList.remove("active");
-  third.classList.remove("active");
+function showFirst() {
+  const clickedImg = 1;
 
-  firstImg.style.opacity = "1";
-  firstImg.style.transform = "scaleX(100%)";
-  firstImage1.style.transform = "scaleX(100%)";
-  firstImage2.style.transform = "scaleX(100%)";
-  firstImageBg.style.transform = "scaleY(100%)";
-  secondImg.style.opacity = "0";
-  secondImg.style.transform = "scaleX(0)";
-  secondImage1.style.transform = "scaleX(0)";
-  secondImage2.style.transform = "scaleX(0)";
-  secondImageBg.style.transform = "scaleY(0)";
-  thirdImg.style.opacity = "0";
-  thirdImg.style.transform = "scaleX(0)";
-  thirdImage1.style.transform = "scaleX(0)";
-  thirdImage2.style.transform = "scaleX(0)";
-  thirdImageBg.style.transform = "scaleY(0)";
-}
-
-function showSecondImg() {
-  const thisImg = 2;
-  addTranformOrigin(thisImg);
-  first.classList.remove("active");
-  second.classList.add("active");
-  third.classList.remove("active");
-
-  firstImg.style.opacity = "0";
-  firstImg.style.transform = "scaleX(0)";
-  firstImage1.style.transform = "scaleX(0)";
-  firstImage2.style.transform = "scaleX(0)";
-  firstImageBg.style.transform = "scaleY(0)";
-  secondImg.style.opacity = "1";
-  secondImg.style.transform = "scaleX(100%)";
-  secondImage1.style.transform = "scaleX(100%)";
-  secondImage2.style.transform = "scaleX(100%)";
-  secondImageBg.style.transform = "scaleY(100%)";
-  thirdImg.style.opacity = "0";
-  thirdImg.style.transform = "scaleX(0)";
-  thirdImage1.style.transform = "scaleX(0)";
-  thirdImage2.style.transform = "scaleX(0)";
-  thirdImageBg.style.transform = "scaleY(0)";
-}
-
-function showThirdImg() {
-  const thisImg = 3;
-  addTranformOrigin(thisImg);
-  first.classList.remove("active");
-  second.classList.remove("active");
-  third.classList.add("active");
-
-  firstImg.style.opacity = "0";
-  firstImg.style.transform = "scaleX(0)";
-  firstImage1.style.transform = "scaleX(0)";
-  firstImage2.style.transform = "scaleX(0)";
-  firstImageBg.style.transform = "scaleY(0)";
-  secondImg.style.opacity = "0";
-  secondImg.style.transform = "scaleX(0)";
-  secondImage1.style.transform = "scaleX(0)";
-  secondImage2.style.transform = "scaleX(0)";
-  secondImageBg.style.transform = "scaleY(0)";
-  thirdImg.style.opacity = "1";
-  thirdImg.style.transform = "scaleX(100%)";
-  thirdImage1.style.transform = "scaleX(100%)";
-  thirdImage2.style.transform = "scaleX(100%)";
-  thirdImageBg.style.transform = "scaleY(100%)";
-}
-
-function addTranformOrigin(thisImg) {
-  if (shownImg < thisImg) {
-    firstImg.style.transformOrigin = "left";
-    firstImage1.style.transformOrigin = "left";
-    firstImage2.style.transformOrigin = "left";
-    firstImageBg.style.transformOrigin = "top";
-    secondImg.style.transformOrigin = "left";
-    secondImage1.style.transformOrigin = "left";
-    secondImage2.style.transformOrigin = "left";
-    secondImageBg.style.transformOrigin = "top";
-    thirdImg.style.transformOrigin = "left";
-    thirdImage1.style.transformOrigin = "left";
-    thirdImage2.style.transformOrigin = "left";
-    thirdImageBg.style.transformOrigin = "top";
-  } else {
-    firstImg.style.transformOrigin = "right";
-    firstImage1.style.transformOrigin = "right";
-    firstImage2.style.transformOrigin = "right";
-    firstImageBg.style.transformOrigin = "bottom";
-    secondImg.style.transformOrigin = "right";
-    secondImage1.style.transformOrigin = "right";
-    secondImage2.style.transformOrigin = "right";
-    secondImageBg.style.transformOrigin = "bottom";
-    thirdImg.style.transformOrigin = "right";
-    thirdImage1.style.transformOrigin = "right";
-    thirdImage2.style.transformOrigin = "right";
-    thirdImageBg.style.transformOrigin = "bottom";
+  if (shownImg === 2) {
+    firstBgImg.style.transformOrigin = "bottom";
+    firstTitleImage.style.transformOrigin = "left";
+    firstProdImg.style.transformOrigin = "left";
+    secondBgImg.style.transformOrigin = "top";
+    secondTitleImage.style.transformOrigin = "right";
+    secondProdImg.style.transformOrigin = "right";
+  } else if (shownImg === 3) {
+    firstBgImg.style.transformOrigin = "top";
+    firstTitleImage.style.transformOrigin = "left";
+    firstProdImg.style.transformOrigin = "left";
+    thirdBgImg.style.transformOrigin = "bottom";
+    thirdTitleImage.style.transformOrigin = "right";
+    thirdProdImg.style.transformOrigin = "right";
   }
 
-  shownImg = thisImg;
+  firstBgImg.style.transform = "scaleY(100%)";
+  firstTitleImage.style.transform = "scaleX(100%)";
+  firstProdImg.style.transform = "scaleX(100%)";
+  secondBgImg.style.transform = "scaleY(0)";
+  secondTitleImage.style.transform = "scaleX(0)";
+  secondProdImg.style.transform = "scaleX(0)";
+  thirdBgImg.style.transform = "scaleY(0)";
+  thirdTitleImage.style.transform = "scaleX(0)";
+  thirdProdImg.style.transform = "scaleX(0)";
+
+  shownImg = clickedImg;
+  console.log(shownImg);
 }
+
+function showSecond() {
+  const clickedImg = 2;
+  // changeSeconOrigin(clickedImg, shownImg);
+  if (shownImg === 1) {
+    firstBgImg.style.transformOrigin = "top";
+    firstTitleImage.style.transformOrigin = "left";
+    firstProdImg.style.transformOrigin = "left";
+    secondBgImg.style.transformOrigin = "bottom";
+    secondTitleImage.style.transformOrigin = "right";
+    secondProdImg.style.transformOrigin = "right";
+  } else if (shownImg === 3) {
+    secondBgImg.style.transformOrigin = "top";
+    secondTitleImage.style.transformOrigin = "left";
+    secondProdImg.style.transformOrigin = "left";
+    thirdBgImg.style.transformOrigin = "bottom";
+    thirdTitleImage.style.transformOrigin = "right";
+    thirdProdImg.style.transformOrigin = "right";
+  }
+
+  requestAnimationFrame(() => {
+    firstBgImg.style.transform = "scaleY(0)";
+    firstTitleImage.style.transform = "scaleX(0)";
+    firstProdImg.style.transform = "scaleX(0)";
+    secondBgImg.style.transform = "scaleY(100%)";
+    secondTitleImage.style.transform = "scaleX(100%)";
+    secondProdImg.style.transform = "scaleX(100%)";
+    thirdBgImg.style.transform = "scaleY(0)";
+    thirdTitleImage.style.transform = "scaleX(0)";
+    thirdProdImg.style.transform = "scaleX(0)";
+  });
+
+  shownImg = clickedImg;
+  console.log(shownImg);
+}
+
+function showThird() {
+  const clickedImg = 3;
+
+  if (shownImg === 1) {
+    firstBgImg.style.transformOrigin = "top";
+    firstTitleImage.style.transformOrigin = "left";
+    firstProdImg.style.transformOrigin = "left";
+    thirdBgImg.style.transformOrigin = "bottom";
+    thirdTitleImage.style.transformOrigin = "right";
+    thirdProdImg.style.transformOrigin = "right";
+  } else if (shownImg === 2) {
+    secondBgImg.style.transformOrigin = "top";
+    secondTitleImage.style.transformOrigin = "left";
+    secondProdImg.style.transformOrigin = "left";
+    thirdBgImg.style.transformOrigin = "bottom";
+    thirdTitleImage.style.transformOrigin = "right";
+    thirdProdImg.style.transformOrigin = "right";
+  }
+
+  firstBgImg.style.transform = "scaleY(0)";
+  firstTitleImage.style.transform = "scaleX(0)";
+  firstProdImg.style.transform = "scaleX(0)";
+  secondBgImg.style.transform = "scaleY(0)";
+  secondTitleImage.style.transform = "scaleX(0)";
+  secondProdImg.style.transform = "scaleX(0)";
+  thirdBgImg.style.transform = "scaleY(100%)";
+  thirdTitleImage.style.transform = "scaleX(100%)";
+  thirdProdImg.style.transform = "scaleX(100%)";
+
+  shownImg = clickedImg;
+  console.log(shownImg);
+}
+
+// firstImg.addEventListener("mouseover", () => {
+//   firstBgImg.style.transform = "scaleY(0)";
+//   firstTitleImage.style.transform = "scaleX(0)";
+//   firstProdImg.style.transform = "scaleX(0)";
+//   secondBgImg.style.transform = "scaleY(100%)";
+//   secondTitleImage.style.transform = "scaleX(100%)";
+//   secondProdImg.style.transform = "scaleX(100%)";
+// });
+
+firstImg.addEventListener("mouseout", () => {
+  firstBgImg.style.transform = "scaleY(100%)";
+  firstTitleImage.style.transform = "scaleX(100%)";
+  firstProdImg.style.transform = "scaleX(100%)";
+  secondBgImg.style.transform = "scaleY(0)";
+  secondTitleImage.style.transform = "scaleX(0)";
+  secondProdImg.style.transform = "scaleX(0)";
+});
