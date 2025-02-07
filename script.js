@@ -140,21 +140,3 @@ function showThird() {
   shownImg = clickedImg;
   console.log(shownImg);
 }
-
-// firstImg.addEventListener("mouseover", () => {
-//   firstBgImg.style.transform = "scaleY(0)";
-//   firstTitleImage.style.transform = "scaleX(0)";
-//   firstProdImg.style.transform = "scaleX(0)";
-//   secondBgImg.style.transform = "scaleY(100%)";
-//   secondTitleImage.style.transform = "scaleX(100%)";
-//   secondProdImg.style.transform = "scaleX(100%)";
-// });
-
-firstImg.addEventListener("mouseout", () => {
-  firstBgImg.style.transform = "scaleY(100%)";
-  firstTitleImage.style.transform = "scaleX(100%)";
-  firstProdImg.style.transform = "scaleX(100%)";
-  secondBgImg.style.transform = "scaleY(0)";
-  secondTitleImage.style.transform = "scaleX(0)";
-  secondProdImg.style.transform = "scaleX(0)";
-});
